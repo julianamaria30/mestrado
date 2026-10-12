@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  drl_nav:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: drl_robot_navigation:latest
+    container_name: drl_nav_container
+    network_mode: host
+    ipc: host
+    pid: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - LIBGL_ALWAYS_SOFTWARE=1
+      - GALLIUM_DRIVER=llvmpipe
+      - TURTLEBOT3_MODEL=waffle
+      - DRLNAV_BASE_PATH=/root/ros2_ws
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./shared_workspace:/root/workspace
+      - ./pesos_treinamento:/root/ros2_ws/src/drl_navigation_ros2/models
+      - ./custom_environments:/root/ros2_ws/src/custom_environments
+    stdin_open: true
+    tty: true

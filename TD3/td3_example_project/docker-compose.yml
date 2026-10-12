@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  ros2_gdae:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ros2_gdae:latest
+    container_name: ros2_gdae_container
+    network_mode: host
+    ipc: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      # Compartilha o servidor X11 para abrir interface gráfica (Gazebo/RViz)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ~/.Xauthority:/root/.Xauthority:rw
+    stdin_open: true # tty_enable para interagir no terminal
+    tty: true
