@@ -19,8 +19,8 @@ services:
       - DRLNAV_BASE_PATH=/root/ros2_ws
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./shared_workspace:/root/workspace
       - ./pesos_treinamento:/root/ros2_ws/src/drl_navigation_ros2/models
       - ./custom_environments:/root/ros2_ws/src/custom_environments
+      - ./experiments:/root/experiments        # logs, pesos e métricas de cada rodada
     stdin_open: true
     tty: true

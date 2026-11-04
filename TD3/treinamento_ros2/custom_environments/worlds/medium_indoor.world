@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros><namespace>/gazebo</namespace></ros>
+      <update_rate>1.0</update_rate>
+    </plugin>
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <include><uri>model://10by10</uri></include>
+    <include><uri>model://obstacle1</uri></include>
+    <include><uri>model://obstacle2</uri></include>
+    <include><uri>model://obstacle3</uri></include>
+    <include><uri>model://obstacle4</uri></include>
+    <include><uri>model://obstacle5</uri></include>
+    <include><uri>model://obstacle6</uri></include>
+    <include><uri>model://obstacle7</uri></include>
+    <include><uri>model://obstacle8</uri></include>
+    <model name="box_m0"><static>true</static><pose>0.0 2.2 0.5 0 0 0</pose>
+      <link name="link"><collision name="c"><geometry><box><size>0.6 0.6 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.6 0.6 1.0</size></box></geometry><material><ambient>0.5 0.35 0.2 1</ambient><diffuse>0.5 0.35 0.2 1</diffuse></material></visual>
+      </link></model>
+    <model name="box_m1"><static>true</static><pose>-0.8 -2.6 0.5 0 0 0</pose>
+      <link name="link"><collision name="c"><geometry><box><size>0.6 0.6 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.6 0.6 1.0</size></box></geometry><material><ambient>0.5 0.35 0.2 1</ambient><diffuse>0.5 0.35 0.2 1</diffuse></material></visual>
+      </link></model>
+    <model name="box_m2"><static>true</static><pose>1.5 0.3 0.5 0 0 0</pose>
+      <link name="link"><collision name="c"><geometry><box><size>0.6 0.6 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.6 0.6 1.0</size></box></geometry><material><ambient>0.5 0.35 0.2 1</ambient><diffuse>0.5 0.35 0.2 1</diffuse></material></visual>
+      </link></model>
+    <model name="wall_m0"><static>true</static><pose>-3.6 1.5 0.5 0 0 0</pose>
+      <link name="link"><collision name="c"><geometry><box><size>1.6 0.2 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>1.6 0.2 1.0</size></box></geometry><material><ambient>0.5 0.35 0.2 1</ambient><diffuse>0.5 0.35 0.2 1</diffuse></material></visual>
+      </link></model>
+  </world>
+</sdf>

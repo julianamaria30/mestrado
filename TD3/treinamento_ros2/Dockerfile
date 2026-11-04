@@ -1,6 +1,5 @@
 FROM osrf/ros:foxy-desktop
 
-# Evita travar a instalação com prompts de timezone
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Instalar dependências do sistema, TurtleBot3 e Jackal
@@ -22,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 # CORREÇÃO DO BUG DE OPENSSL: Atualiza o pip antes de qualquer instalação pesada
 RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel
 
-# Instalar PyTorch (CPU version) e dependências de Machine Learning
+# Instalar PyTorch e dependências de Machine Learning
 RUN pip3 install --no-cache-dir \
     torch==1.13.1+cpu \
     torchvision==0.14.1+cpu \

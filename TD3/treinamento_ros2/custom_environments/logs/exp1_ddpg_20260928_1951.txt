@@ -1,9 +1,0 @@
-Loading file:  src/drl_navigation_ros2/assets/data.yml
-Running Pretraining
-Model Pretrained
-..............................................
-Epoch 1. Evaluating 10 scenarios
-Average Reward: -83.91918968193197
-Average Collision rate: 0.7
-Average Goal rate: 0.0
-..............................................
